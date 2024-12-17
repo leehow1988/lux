@@ -1,14 +1,14 @@
-name: douyu
+name: instagram
 
 on:
   push:
     paths:
-      - "extractors/douyu/*.go"
-      - ".github/workflows/stream_douyu.yml"
+      - "extractors/threads/*.go"
+      - ".github/workflows/stream_threads.yml"
   pull_request:
     paths:
-      - "extractors/douyu/*.go"
-      - ".github/workflows/stream_douyu.yml"
+      - "extractors/threads/*.go"
+      - ".github/workflows/stream_threads.yml"
   schedule:
     # run ci weekly
     - cron: "0 0 * * 0"
@@ -28,4 +28,4 @@ jobs:
           go-version: ${{ matrix.go }}
 
       - name: Test
-        run: go test -timeout 5m -race -coverpkg=./... -coverprofile=coverage.txt github.com/iawia002/lux/extractors/douyu
+        run: go test -timeout 5m -race -coverpkg=./... -coverprofile=coverage.txt github.com/iawia002/lux/extractors/threads

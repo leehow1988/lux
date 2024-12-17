@@ -1,4 +1,4 @@
-package xiaohongshu
+package odysee
 
 import (
 	"testing"
@@ -13,15 +13,22 @@ func TestDownload(t *testing.T) {
 		args test.Args
 	}{
 		{
-			name: "normal test",
+			name: "video test 1",
 			args: test.Args{
-				URL:   "https://www.xiaohongshu.com/explore/64e9f1e50000000003023b3f",
-				Title: "七星级大厨都不会告诉你的，五花肉的8种做法",
-				Size:  59410194,
+				URL:   "https://odysee.com/@FunnyPets:4e/funny-pets-378-funny-shorts:6",
+				Title: "Funny Pets 378 #funny #shorts",
+				Size:  1144972,
+			},
+		},
+		{
+			name: "video test 2",
+			args: test.Args{
+				URL:   "https://odysee.com/@FunnyPets:4e/best-of-funny-pets-week-2-funny-pets:a",
+				Title: "Best of Funny Pets Week 2 #funny #pets",
+				Size:  167272140,
 			},
 		},
 	}
-
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			data, err := New().Extract(tt.args.URL, extractors.Options{})

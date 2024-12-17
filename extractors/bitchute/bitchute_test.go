@@ -1,4 +1,4 @@
-package xiaohongshu
+package bitchute
 
 import (
 	"testing"
@@ -13,15 +13,22 @@ func TestDownload(t *testing.T) {
 		args test.Args
 	}{
 		{
-			name: "normal test",
+			name: "video test 1",
 			args: test.Args{
-				URL:   "https://www.xiaohongshu.com/explore/64e9f1e50000000003023b3f",
-				Title: "七星级大厨都不会告诉你的，五花肉的8种做法",
-				Size:  59410194,
+				URL:   "https://www.bitchute.com/video/C17naZ6WlWPo",
+				Title: "Everybody Dance Now",
+				Size:  1794720,
+			},
+		},
+		{
+			name: "video test 2",
+			args: test.Args{
+				URL:   "https://www.bitchute.com/video/HFgoUz6HrvQd",
+				Title: "Bear Level 1",
+				Size:  971698,
 			},
 		},
 	}
-
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			data, err := New().Extract(tt.args.URL, extractors.Options{})
